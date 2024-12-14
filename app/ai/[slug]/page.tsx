@@ -3,10 +3,11 @@ import { useState, useEffect } from "react";
 import { useRouter } from "next/navigation";
 import { useAuth } from "@clerk/nextjs";
 import ReactMarkdown from "react-markdown";
+import remarkGfm from "remark-gfm"; // Import the remark-gfm plugin
 
 const SLUG_PROMPTS = {
-    "dveg-res-serach": "I am a vegetarian, I am looking for a recipe for my meal. Please give me a recipe that will be so tasty within my avialable items. I have some items in my home these are",
-    "nonveg-protein": "I am a vegetarian. gimme the raw answer, i have a food item but I want to know if it is a veg or non-veg item and how much protein it has and what are alternative veg and non-veg items are similar in their vitamins and nutrition. my food item is ",
+    "dveg-res-serach": "I am a vegetarian, I am looking for a recipe for my meal. Please give me a recipe that will be so tasty within my available items. I have some items in my home these are",
+    "nonveg-protein": "I am a vegetarian. gimme the raw answer, i have a food item but I want to know if it is a veg or non-veg item and how much protein it has and what are alternative veg and non-veg items are similar in their vitamins and nutrition. gimme the result in a table formate so it could be more readable and handy to understand. and if you have any quesry to gimme a best result you can ask. and your response will be in markdown formate. my food item is ",
     "daily-diat": "",
 };
 
@@ -101,13 +102,12 @@ const ChatPage = ({ params }: { params: { slug: string } }) => {
                                 : "bg-gray-200 text-black"
                                 }`}
                         >
-                            {/* Use ReactMarkdown to render Markdown */}
-                            <ReactMarkdown>
+                            {/* Use ReactMarkdown with remark-gfm to render Markdown and tables */}
+                            <ReactMarkdown remarkPlugins={[remarkGfm]}>
                                 {message.content}
                             </ReactMarkdown>
                         </div>
                     </div>
-
                 ))}
                 {isLoading && (
                     <div className="mb-2 text-left text-gray-500">
