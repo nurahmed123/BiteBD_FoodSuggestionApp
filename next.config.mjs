@@ -3,7 +3,7 @@ import { withSentryConfig } from '@sentry/nextjs';
 /** @type {import('next').NextConfig} */
 const nextConfig = {
     images: {
-        domains: ['files.edgestore.dev'], // Add the domain for next/image support
+        domains: ['files.edgestore.dev', 'assets.aceternity.com'], // Add the domain for next/image support
     },
 };
 
