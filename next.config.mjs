@@ -1,5 +1,3 @@
-import { withSentryConfig } from '@sentry/nextjs';
-
 /** @type {import('next').NextConfig} */
 const nextConfig = {
     images: {
@@ -7,15 +5,5 @@ const nextConfig = {
     },
 };
 
-const sentryWebpackPluginOptions = {
-    silent: true,
-    org: "education-a7",
-    project: "javascript-nextjs",
-    hideSourceMaps: true, // Hides source maps from client bundles
-    disableLogger: true,
-    deleteSourceMapsAfterUpload: true, // Automatically delete source maps after upload
-};
+export default nextConfig;
 
-
-
-export default withSentryConfig(nextConfig, sentryWebpackPluginOptions);
