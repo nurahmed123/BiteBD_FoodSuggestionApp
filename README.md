@@ -1,5 +1,5 @@
 
-# BiteBD FoodSuggestionApp
+# BiteBD FoodSuggestionApp 
 
 A food suggestion app to help users discover new and exciting dishes based on their preferences. This project is designed to offer an easy and engaging way to explore food options, powered by various algorithms to match users' tastes.
 
@@ -37,11 +37,9 @@ cd BiteBD_FoodSuggestionApp`
 
 1.  Navigate to the backend directory:
 
-bash
-
-Copy code
-
-`cd backend` 
+```bash
+cd backend
+```
 
 2.  Install the necessary dependencies:
 ``` bash
